@@ -5,78 +5,78 @@
 #include<graphics.h>
 
 int main(){
-	int x0,y0,x1,y1,dx,dy,a,t,P;
+	int x1,y1,x2,y2,dx,dy,a,t,P;
 	float m;
 	int x,y,i;
 	int gdriver= DETECT, gmode;
 	initgraph(&gdriver,&gmode, "C:\\TURBOC3\\BGI");
-	printf("X0= ");
-	scanf("%d",&x0);
-	printf("Y0= ");
-	scanf("%d",&y0);
 	printf("X1= ");
 	scanf("%d",&x1);
 	printf("Y1= ");
 	scanf("%d",&y1);
-	
+	printf("X2= ");
+	scanf("%d",&x2);
+	printf("Y2= ");
+	scanf("%d",&y2);
+
 	dx=abs(x2-x1);
 	dy=abs(y2-y1);
-	
+
 	if(((x2-x1)<0 && (y2-y1)>0) || ((x2-x1)>0 && (y2-y1)<0)){
 	    a=-1;
 	}else{
 	    a=1;
 	}
-	
+
 	if(dy<dx){
 	    if(x1>x2){
-	        t=x1;
-	        x1=x2;
-	        x2=t;
-	        t=y1;
-	        y1=y2;
-	        y2=t;
+		t=x1;
+		x1=x2;
+		x2=t;
+		t=y1;
+		y1=y2;
+		y2=t;
 	    }
-	    
+
 	    P=2*dy-dx;
 	    putpixel(x1,y1,5);
 	    while(abs(x1)<abs(x2)){
-	        if(P<0){
-	            P=P+2*dy;
-	        }else{
-	            P=P+2*dy-2*dx;
-	            y1=y1+a;
-	        }
-	        x1=x1+1;
-	        putpixel(x1,y1,5);
+		if(P<0){
+		    P=P+2*dy;
+		}else{
+		    P=P+2*dy-2*dx;
+		    y1=y1+a;
+		}
+		x1=x1+1;
+		putpixel(x1,y1,5);
 	    }
 	}else{
-	    if(abs(m1)>1){
-	        if(y1>y2){
-	            t=x1;
-	            x1=x2;
-	            x2=t;
-	            t=y1;
-	            y1=y2;
-	            y2=t;
-	        }
-	        
-	        P=2*dx-dy;
-	        putpixel(x1,y1,5);
-	        while(y1<y2){
-	            if(P<0){
-	                P=P+2*dx;
-	            }else{
-	                P=P+2*dx-2*dy;
-	                x1=x1+a;
-	            }
-	            y1=y1+1;
-	            putpixel(x1,y1,5);
-	        }
+	    if(abs(m)>1){
+		if(y1>y2){
+		    t=x1;
+		    x1=x2;
+		    x2=t;
+		    t=y1;
+		    y1=y2;
+		    y2=t;
+		}
+
+		P=2*dx-dy;
+		putpixel(x1,y1,5);
+		while(y1<y2){
+		    if(P<0){
+			P=P+2*dx;
+		    }else{
+			P=P+2*dx-2*dy;
+			x1=x1+a;
+		    }
+		    y1=y1+1;
+		    putpixel(x1,y1,5);
+		}
 	    }
 	}
-	
-	
+
+
 	getch();
 	closegraph();
 	return 0;
