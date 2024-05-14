@@ -3,13 +3,14 @@
 
 void flood(int x, int y, int fill_col, int old_col);
 
-void main() {
+int main() {
     int gd, gm = DETECT;
     initgraph(&gd, &gm, "C:\\TurboC3\\BGI");
     rectangle(100, 100, 150, 150);
     flood(110, 110, 7, 0);
     getch();
     closegraph();
+    return 0;
 }
 
 void flood(int x, int y, int fill_col, int old_col) {
