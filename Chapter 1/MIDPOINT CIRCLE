@@ -3,43 +3,42 @@
 #include<conio.h>
 #include<graphics.h>
 
-int main(){
-	int r,h,k,x,y,p;
-	int gdriver=DETECT,gmode;
-	initgraph(&gdriver,&gmode,"C:\\TURBOC3\\BGI");
-	printf("h=");
-	scanf("%d",&h);
-	printf("k=");
-	scanf("%d",&k);
-	printf("r=");
-	scanf("%d",&r);
+int main() {
+    int r, h, k, x, y, p;
+    int gdriver = DETECT, gmode;
+    initgraph(&gdriver, &gmode, "C:\\TURBOC3\\BGI");
 
-	x=0;
-	y=r;
-	p=1-r;
+    printf("h=");
+    scanf("%d", &h);
+    printf("k=");
+    scanf("%d", &k);
+    printf("r=");
+    scanf("%d", &r);
 
-	while(x>=y){
-		putpixel(x+h,y+k,4);
-		putpixel(-x+h,y+k,4);
-		putpixel(x+h,-y+k,4);
-		putpixel(-x+h,-y+k,4);
-		putpixel(y+h,x+k,4);
-		putpixel(-y+h,x+k,4);
-		putpixel(y+h,-x+k,4);
-		putpixel(-y+h,-x+k,4);
+    x = 0;
+    y = r;
+    p = 1 - r;
 
-		if(p0<0){
-			p=p+2*x+1;
-			x=x+1;
-		} else{
-			p=p+2*x+1-2*y;
-			x=x+1;
-			y=y-1;
-		}
-	}
+    while(x <= y) {
+        putpixel(x + h, y + k, 4);
+        putpixel(-x + h, y + k, 4);
+        putpixel(x + h, -y + k, 4);
+        putpixel(-x + h, -y + k, 4);
+        putpixel(y + h, x + k, 4);
+        putpixel(-y + h, x + k, 4);
+        putpixel(y + h, -x + k, 4);
+        putpixel(-y + h, -x + k, 4);
 
+        if(p < 0) {
+            p = p + 2 * x + 1;
+        } else {
+            p = p + 2 * x + 1 - 2 * y;
+            y = y - 1;
+        }
+        x = x + 1;
+    }
 
-	getch();
-	closegraph();
-	return 0;
+    getch();
+    closegraph();
+    return 0;
 }
