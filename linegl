@@ -1,0 +1,39 @@
+#include <windows.h>
+#include <GL/glut.h>
+
+void init(void);
+void display(void);
+
+// driver program
+int main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutCreateWindow("Line");
+	glutInitWindowSize(700, 700);	  // whole window size initialize
+	glutInitWindowPosition(100, 100); // window position initialize
+    init();
+	glutDisplayFunc(display);
+	glutMainLoop();
+	return 0;
+}
+
+void init(void)
+{
+	glMatrixMode(GL_PROJECTION);
+	gluOrtho2D(0.0, 200.0, 0.0, 150.0);
+}
+
+void display(void)
+{
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glLineWidth(15);
+	// GL_POINTS, GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_QUADS, GL_QUAD_STRIP, and GL_POLYGON
+	glBegin(GL_LINES);
+	glColor3f(1.0, 0.0, 1.0);
+	glVertex2i(180, 15);
+	glVertex2i(10, 145);
+	glEnd();
+	glFlush();
+}
+
