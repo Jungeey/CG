@@ -136,6 +136,3 @@ line(x, y, x1, y1);
 getch();
 closegraph();
 }
-
-
-f
